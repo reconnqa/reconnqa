@@ -1,0 +1,60 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+#loginScreen {
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+table {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+h2, h3 {
+    font-weight: bold;
+}
+
+h2 {
+    color: #007bff;
+}
+
+h3 {
+    color: #343a40;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    #mainScreen {
+        padding: 0 15px;
+    }
+
+    .list-group-item {
+        text-align: center;
+    }
+
+    .btn-block {
+        width: 100%;
+        display: block;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}

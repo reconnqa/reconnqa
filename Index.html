@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Overtime and Task Management</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Thêm Bootstrap Icons (tùy chọn) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Màn hình đăng nhập -->
+    <div id="loginScreen" class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-sm p-4" style="width: 100%; max-width: 350px;">
+            <h2 class="text-center mb-4">Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div id="loginError" class="alert alert-danger mt-3" style="display: none;">Invalid username or password</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Màn hình chính sau khi đăng nhập -->
+    <div id="mainScreen" class="container mt-4" style="display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Welcome, <span id="user"></span>!</h2>
+            <button id="logout" class="btn btn-outline-danger">Logout</button>
+        </div>
+        <div class="row">
+            <!-- Các tùy chọn chính -->
+            <div class="col-md-3 mb-4">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action" id="employeeInfoLink">Thông tin nhân viên</li>
+                    <li class="list-group-item list-group-item-action" id="overtimeReportLink">Báo tăng ca</li>
+                    <li class="list-group-item list-group-item-action" id="taskManagementLink">Chức năng Nhiệm vụ</li>
+                </ul>
+            </div>
+
+            <!-- Nội dung tương ứng -->
+            <div class="col-md-9">
+                <!-- Thông tin nhân viên -->
+                <div id="employeeInfo" style="display: none;">
+                    <h3>Danh sách nhân viên</h3>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Năm sinh</th>
+                                <th>Chức vụ</th>
+                                <th>Tài khoản</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeList">
+                            <!-- Danh sách nhân viên sẽ hiển thị tại đây -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Báo tăng ca -->
+                <div id="overtimeReport" style="display: none;">
+                    <h3>Báo tăng ca</h3>
+                    <form id="overtimeForm">
+                        <div class="form-group">
+                            <label for="overtimeDate">Ngày</label>
+                            <input type="date" class="form-control" id="overtimeDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startTime">Từ giờ</label>
+                            <input type="time" class="form-control" id="startTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endTime">Đến giờ</label>
+                            <input type="time" class="form-control" id="endTime" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Gửi báo cáo</button>
+                    </form>
+
+                    <h4 class="mt-4">Danh sách tăng ca công khai</h4>
+                    <ul class="list-group mt-3" id="publicOvertimeList">
+                        <!-- Danh sách tăng ca của tất cả nhân viên sẽ hiển thị tại đây -->
+                    </ul>
+                </div>
+
+                <!-- Chức năng Nhiệm vụ -->
+                <div id="taskManagement" style="display: none;">
+                    <h3>Giao nhiệm vụ</h3>
+                    <form id="taskForm">
+                        <div class="form-group">
+                            <label for="taskEmployee">Chọn nhân viên</label>
+                            <select class="form-control" id="taskEmployee">
+                                <!-- Danh sách nhân viên sẽ hiển thị tại đây -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDescription">Nội dung nhiệm vụ</label>
+                            <input type="text" class="form-control" id="taskDescription" placeholder="Nhập nội dung nhiệm vụ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDeadline">Hạn chót</label>
+                            <input type="date" class="form-control" id="taskDeadline" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Giao nhiệm vụ</button>
+                    </form>
+
+                    <h4 class="mt-4">Danh sách nhiệm vụ</h4>
+                    <ul class="list-group mt-3" id="taskList">
+                        <!-- Danh sách nhiệm vụ sẽ hiển thị tại đây -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thêm Bootstrap và JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
